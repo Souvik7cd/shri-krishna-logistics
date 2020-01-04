@@ -3,12 +3,13 @@
 
 <head>
 	<title>Weight Machine</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <body>
-	<div class="w3-bar w3-large w3-blue">
-		<a href="#" class="w3-bar-item w3-button w3-hover-blue">Weight Machine Calculator</a>
-	</div>
+  <div class="w3-container w3-blue">
+    <h3 style="text-align:center">Weight Machine Calculator</h3>
+  </div>
 	<br>
 	<div class="w3-container">
 		<div class="w3-container w3-blue">
@@ -17,16 +18,17 @@
 		<form class="w3-container w3-padding-16 w3-light-blue">
 			<div class="w3-row">
 				<div class="w3-col s8 l8">
-					<input type="text" class="w3-input w3-border-light-blue">
+					<input type="number" class="w3-input w3-border-light-blue" id="unknown">
             </div>
 					<div class="w3-col s4 l3">
-						<button type="button" class="w3-btn w3-blue">Calculate</button>
+						<button type="button" class="w3-btn w3-blue" onclick="calcUnknown()">Calculate</button>
 					</div>
 				</div>
         <br>
 				<div>
-					Result: <span></span>
+					Approx Result = <span id="res-1"></span>
 				</div>
+        <br>
 		</form>
 	</div>
   <br>
@@ -37,20 +39,32 @@
 		<form class="w3-container w3-padding-16 w3-light-blue">
 			<div class="w3-row">
 				<div class="w3-col s8 l8">
-					<input type="text" class="w3-input w3-border-light-blue">
+					<input type="number" class="w3-input w3-border-light-blue" id="known">
             </div>
 					<div class="w3-col s4 l3">
-						<button type="button" class="w3-btn w3-blue">Calculate</button>
+						<button type="button" class="w3-btn w3-blue" onclick="calcKnown()">Calculate</button>
 					</div>
 				</div>
         <br>
 				<div>
-					Result: <span></span>
+					Approx Result = <span id="res-2"></span>
 				</div>
+        <br>
 		</form>
 	</div>
 
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script>
+    function calcUnknown() {
+      let unknown = parseFloat(document.getElementById('unknown').value);
+      let result = Math.round(unknown / 1.162111)
+      document.getElementById('res-1').innerHTML = result;
+    }
+    function calcKnown() {
+      let known = parseFloat(document.getElementById('known').value);
+      let result = Math.round(known * 1.162111);
+      document.getElementById('res-2').innerHTML = result;
+    }
+  </script>
 </body>
 
 </html>

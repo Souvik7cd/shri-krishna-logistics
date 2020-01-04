@@ -1,4 +1,5 @@
-// Import stylesheets
-import './style.css';
-
 // Write TypeScript code!
+function calcUnknown() {
+  let unknown = document.getElementById('unknown').nodeValue;
+  document.getElementById('res').innerHTML = unknown;
+}
